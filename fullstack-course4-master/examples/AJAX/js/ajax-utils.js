@@ -1,3 +1,8 @@
+
+/* Document
+    https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX/Getting_Started
+    https://codelearn.io/sharing/ajax-co-ban-cho-lap-trinh-front-end
+*/
 (function (global) {
 
 // Set up a namespace for our utility
@@ -6,6 +11,7 @@ var ajaxUtils = {};
 
 // Returns an HTTP request object
 function getRequestObject() {
+  //check which XMLHttp objects is available to us
   if (global.XMLHttpRequest) {
     return (new XMLHttpRequest());
   } 
@@ -23,7 +29,9 @@ function getRequestObject() {
 // Makes an Ajax GET request to 'requestUrl'
 ajaxUtils.sendGetRequest = 
   function(requestUrl, responseHandler) {
+    //create XMLHttp object
     var request = getRequestObject();
+    //
     request.onreadystatechange = 
       function() { 
         handleResponse(request, responseHandler); 
